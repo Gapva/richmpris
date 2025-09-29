@@ -7,7 +7,8 @@ import time
 import re
 import argparse
 from discord_webhook import DiscordWebhook, DiscordEmbed
-from sys import exit
+import sys
+import signal
 
 parser = argparse.ArgumentParser(
     prog="richmpris",
@@ -76,6 +77,8 @@ blocked_phrases = [
 
 recent_print_string = ""
 
+signal.signal(signal.SIGINT, lambda signum, frame: sys.exit(0))
+
 
 def is_recent_print_unique(text=""):
     global recent_print_string
@@ -118,11 +121,12 @@ Rescanning in {sleep_interval} seconds
         """)
 
 
+def handle_interrupt(sig, frame):
+    sys.exit(0)
+
+
 def sleep():
-    try:
-        time.sleep(sleep_interval)
-    except KeyboardInterrupt:
-        exit(0)
+    time.sleep(sleep_interval)
 
 
 def sanitize_title(title: str) -> str:
@@ -150,7 +154,7 @@ def main(args):
         RPC.connect()
     except lynxpresence.exceptions.DiscordNotFound:
         print("no client available")
-        exit(1)
+        sys.exit(1)
 
     while True:
         dbus_loop = DBusGMainLoop()
