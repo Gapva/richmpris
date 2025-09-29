@@ -121,8 +121,7 @@ def sleep():
     try:
         time.sleep(sleep_interval)
     except KeyboardInterrupt:
-        print(end="\r")
-        exit()
+        exit(0)
 
 
 def sanitize_title(title: str) -> str:
