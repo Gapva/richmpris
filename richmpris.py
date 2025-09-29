@@ -7,6 +7,7 @@ import time
 import re
 import argparse
 from discord_webhook import DiscordWebhook, DiscordEmbed
+from sys import exit
 
 parser = argparse.ArgumentParser(
     prog="richmpris",
