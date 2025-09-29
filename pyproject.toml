@@ -1,0 +1,14 @@
+[project]
+name = "richmpris"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "argparse>=1.4.0",
+    "dbus-python>=1.4.0",
+    "discord-webhook>=1.4.1",
+    "lynxpresence>=4.4.1",
+    "pympris>=1.4",
+    "pypresence>=4.3.0",
+]
