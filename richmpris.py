@@ -70,8 +70,6 @@ blocked_phrases = [
     "[lyric video]",
     "(lyrics)",
     "[lyrics]",
-    "with lyrics",
-    "w/ lyrics",
     " - topic",
 ]
 
