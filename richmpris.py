@@ -10,6 +10,8 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import sys
 import signal
 
+version = "1.0"
+
 parser = argparse.ArgumentParser(
     prog="richmpris",
     description="a program to display rich presence information from the MPRIS d-bus",
@@ -38,6 +40,9 @@ parser.add_argument(
     "--swap-meta",
     help="swap the title and artist fields in metadata",
     action="store_true",
+)
+parser.add_argument(
+    "-v", "--version", help="show richmpris' version and quit", action="store_false"
 )
 
 cid = "1421374440239009824"
@@ -71,6 +76,11 @@ blocked_phrases = [
     "(lyrics)",
     "[lyrics]",
     " - topic",
+    "(official visualizer)",
+    "(visualizer)",
+    "[official visualizer]",
+    "[visualizer]",
+    "official visualizer",
 ]
 
 recent_print_string = ""
@@ -231,4 +241,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if "client_id" in args:
         cid = args.client_id if not args.client_id == None else cid
+    if "version" in args:
+        if args.version:
+            print(version)
+            exit(0)
     main(args)
