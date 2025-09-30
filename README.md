@@ -1,6 +1,4 @@
-# richmpris
-
-rich presence for the linux MPRIS d-bus
+<img width="500" height="200" alt="richmpris-banner" src="https://github.com/user-attachments/assets/51fe9564-cfc8-447a-b9fc-56f3a484a934" />
 
 # installation
 
@@ -31,3 +29,4 @@ listening status that way.
 # contributing
 
 fork and make a [pull request](https://github.com/Gapva/richmpris/compare)
+
